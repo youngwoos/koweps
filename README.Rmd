@@ -16,8 +16,7 @@ knitr::opts_chunk$set(
 
 ## 한국복지패널 데이터 패키지
 
-- 2017년 12차 머지 데이터(가구용, 가구원용, 장애인설문용 데이터 통합본)입니다.
-
+- 한국복지패널 2017년 12차 머지 데이터(가구용, 가구원용, 장애인설문용 데이터 통합본)입니다.
 
 ## Installation
 
@@ -31,7 +30,7 @@ remotes::install_github("youngwoos/koweps")
 
 ```{r example}
 library(koweps)
-str(welfare, list.len = 10)
+str(welfare, list.len = 20)
 
-welfare[1:10, 1:5]
+welfare[1:20, 1:5]
 ```
