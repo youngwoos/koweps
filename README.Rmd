@@ -2,7 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
@@ -12,38 +11,27 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
 # koweps
 
-The goal of koweps is to ...
+## 한국복지패널 데이터 패키지
+
+- 2017년 12차 머지 데이터(가구용, 가구원용, 장애인설문용 데이터 통합본)입니다.
+
 
 ## Installation
 
-You can install the released version of koweps from [CRAN](https://CRAN.R-project.org) with:
-
 ``` r
-install.packages("koweps")
+# install.packages("remotes")
+remotes::install_github("youngwoos/koweps")
 ```
+
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
-## basic example code
+library(koweps)
+str(welfare, list.len = 10)
+
+welfare[1:10, 1:5]
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!

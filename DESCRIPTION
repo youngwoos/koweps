@@ -1,16 +1,15 @@
 Package: koweps
-Title: What the Package Does (One Line, Title Case)
+Title: https://www.koweps.re.kr:442/data/data/list.do
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Youngwoo",
+           family = "Kim",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "stats7445@gmail.com")
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Imports: 
     tibble
+URL: https://github.com/youngwoos/koweps
