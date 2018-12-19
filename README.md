@@ -2,10 +2,13 @@
 koweps
 ======
 
-한국복지패널 데이터 패키지
---------------------------
+한국복지패널 조사(Korea Welfare Panel Study) 데이터 패키지
+----------------------------------------------------------
 
 -   한국복지패널 2017년 12차 머지 데이터(가구용, 가구원용, 장애인설문용 데이터 통합본)입니다.
+-   데이터에 대한 설명은 아래 자료를 참고하세요.
+    -   코딩북 : <https://www.koweps.re.kr:442/data/book/list.do>
+    -   유저가이드 : <https://www.koweps.re.kr:442/data/guide/list.do>
 
 Installation
 ------------
@@ -67,3 +70,18 @@ welfare[1:20, 1:5]
 #> 19     15       1      1     150101     0
 #> 20     15       1      1     150101     0
 ```
+
+``` r
+# 연령 및 성별 인구 밀도
+library(dplyr)
+library(ggplot2)
+
+welfare <- welfare %>%
+  mutate(sex = ifelse(h12_g3 == 1, "Male", "Female"),
+         age = 2017 - h12_g4)
+
+ggplot(welfare, aes(x = age, fill = sex)) + 
+  geom_density(alpha = 0.3)
+```
+
+<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
