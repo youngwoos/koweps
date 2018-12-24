@@ -36,9 +36,8 @@ library(koweps)
 str(welfare, list.len = 20)
 
 library(dplyr)
-welfare %>% 
-  select(1:5) %>% 
-  head(20)
+welfare %>%
+  select(1:10)
 ```
 
 ```{r, message=F}
