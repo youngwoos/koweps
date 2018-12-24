@@ -31,22 +31,23 @@ remotes::install_github("youngwoos/koweps")
 
 ## Example
 
-```{r example}
+```{r example, message=F}
 library(koweps)
 str(welfare, list.len = 20)
 
-welfare[1:20, 1:5]
+library(dplyr)
+welfare %>% 
+  select(1:5) %>% 
+  head(20)
 ```
 
 ```{r, message=F}
 # 연령 및 성별 인구 밀도
-library(dplyr)
-library(ggplot2)
-
 welfare <- welfare %>%
   mutate(sex = ifelse(h12_g3 == 1, "Male", "Female"),
          age = 2017 - h12_g4)
 
+library(ggplot2)
 ggplot(welfare, aes(x = age, fill = sex)) + 
   geom_density(alpha = 0.3)
 ```

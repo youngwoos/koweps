@@ -47,17 +47,22 @@ str(welfare, list.len = 20)
 #>  $ h12_pind        : num  1 1 1 1 4 1 1 1 1 1 ...
 #>   [list output truncated]
 
-welfare[1:20, 1:5]
+library(dplyr)
+welfare %>% 
+  select(1:5) %>% 
+  head(20)
+#> # A tibble: 20 x 5
 #>    h12_id h12_ind h12_sn h12_merkey h_new
-#> 1       1       1      1      10101     0
-#> 2       2       1      1      20101     0
-#> 3       3       1      1      30101     0
-#> 4       4       1      1      40101     0
-#> 5       4       1      1      40101     0
-#> 6       6       1      1      60101     0
-#> 7       6       1      1      60101     0
-#> 8       6       1      1      60101     0
-#> 9       6       1      1      60101     0
+#>     <dbl>   <dbl>  <dbl>      <dbl> <dbl>
+#>  1      1       1      1      10101     0
+#>  2      2       1      1      20101     0
+#>  3      3       1      1      30101     0
+#>  4      4       1      1      40101     0
+#>  5      4       1      1      40101     0
+#>  6      6       1      1      60101     0
+#>  7      6       1      1      60101     0
+#>  8      6       1      1      60101     0
+#>  9      6       1      1      60101     0
 #> 10      6       1      1      60101     0
 #> 11      8       1      1      80101     0
 #> 12     10       1      1     100101     0
@@ -73,13 +78,11 @@ welfare[1:20, 1:5]
 
 ``` r
 # 연령 및 성별 인구 밀도
-library(dplyr)
-library(ggplot2)
-
 welfare <- welfare %>%
   mutate(sex = ifelse(h12_g3 == 1, "Male", "Female"),
          age = 2017 - h12_g4)
 
+library(ggplot2)
 ggplot(welfare, aes(x = age, fill = sex)) + 
   geom_density(alpha = 0.3)
 ```
